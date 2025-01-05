@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,10 +11,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject healthScreen;
     [SerializeField] private GameObject statusScreen;
 
+    [SerializeField] private RocketLocation rocketLocation;
+
+    [SerializeField][Range(1,10)] private float secondsBetweenScreenSwitches = 5f;
+
+    public UnityEvent m_GameFinished;
+
+    private Screen currentScreen;
+
     private void Start()
     {
+        this.m_GameFinished ??= new UnityEvent();
+        
         this._launched = false;
         this.SwitchScreen(Screen.Main);
+        this.currentScreen = Screen.Main;
     }
 
 
@@ -35,11 +47,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void StartScreenSwitching()
+    {
+        InvokeRepeating(nameof(SwitchToNextScreen), 0f, secondsBetweenScreenSwitches);
+    }
+
+    private void SwitchToNextScreen()
+    {
+        this.currentScreen = GetNextScreen(this.currentScreen);
+        this.SwitchScreen(this.currentScreen);
+    }
+
 
     public void Launch()
     {
         this._launched = true;
-        this.SwitchScreen(Screen.Trajectory);
+        this.rocketLocation.launch();
+        this.StartScreenSwitching();
+    }
+
+    public void Land()
+    {
+        CancelInvoke(nameof(SwitchToNextScreen));
+        this.SwitchScreen(Screen.Main);
+        this.m_GameFinished.Invoke();
     }
 
 
@@ -67,6 +98,18 @@ public class GameManager : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(screen), screen, null);
         }
+    }
+    
+    private static Screen GetNextScreen(Screen current)
+    {
+        return current switch
+        {
+            Screen.Main => Screen.Trajectory,
+            Screen.Trajectory => Screen.Health,
+            Screen.Health => Screen.Status,
+            Screen.Status => Screen.Trajectory,
+            _ => Screen.Main
+        };
     }
 
     private enum Screen

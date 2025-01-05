@@ -5,10 +5,11 @@ using UnityEngine.Video;
 
 public class MainController : MonoBehaviour
 {
-    [FormerlySerializedAs("screenController")] [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
 
     [SerializeField] private VideoPlayer loop;
     [SerializeField] private VideoPlayer launch;
+    [SerializeField] private VideoPlayer end;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class MainController : MonoBehaviour
         this.launch.Stop();
 
         this.launch.loopPointReached += EndReached;
+        this.gameManager.m_GameFinished.AddListener(OnEndReached);
     }
 
     private void Update()
@@ -27,10 +29,19 @@ public class MainController : MonoBehaviour
             this.loop.Stop();
             this.launch.Play();
         }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            EndReached(null);
+        }
     }
 
     private void EndReached(VideoPlayer vp)
     {
         this.gameManager.Launch();
+    }
+
+    void OnEndReached()
+    {
+        this.end.Play();
     }
 }
