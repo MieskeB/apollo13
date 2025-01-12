@@ -63,7 +63,7 @@ public class Astronaut : MonoBehaviour
 
     private void UpdateBloodPressureText()
     {
-        this.bloodPressureText.text = "Blood pressure: " + this._bloodPressureUpper + " / " + this._bloodPressureLower;
+        this.bloodPressureText.text = "Blood pressure: " + this._bloodPressureUpper + " / " + this._bloodPressureLower + " mmHg";
     }
 
     public void SetRespiratoryRate(float respiratoryRate)

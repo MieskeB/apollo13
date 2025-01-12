@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using TMPro;
 
 public class RocketLocation : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
 
     [SerializeField] private GameObject rocket;
+    
+    [SerializeField] private TextMeshProUGUI counterDisplay;
     
     [SerializeField] private Transform[] points;
     [FormerlySerializedAs("flightDuration")] [SerializeField] private float flightDurationSeconds = 3600f;
@@ -16,6 +19,8 @@ public class RocketLocation : MonoBehaviour
 
     private bool launched = false;
     private bool landed = false;
+    
+    private float elapsedTime = 0f;
 
     private void Start()
     {
@@ -30,6 +35,14 @@ public class RocketLocation : MonoBehaviour
 
     private void Update()
     {
+        if (launched && !landed) {
+            elapsedTime += Time.deltaTime;
+            int hours = (int)(elapsedTime / 3600);
+            int minutes = (int)(elapsedTime % 3600 / 60);
+            int seconds = (int)(elapsedTime % 60);
+            counterDisplay.text = $"T+{hours:00}:{minutes:00}:{seconds:00}";
+        }
+        
         if (!launched) return;
         
         if (this.rocket.activeSelf)
