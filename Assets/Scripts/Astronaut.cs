@@ -8,6 +8,8 @@ using UnityEngine.Serialization;
 
 public class Astronaut : MonoBehaviour
 {
+    [SerializeField] private string name;
+    
     [SerializeField] private TextMeshProUGUI heartBeatText;
     [SerializeField] private TextMeshProUGUI bloodPressureText;
     [SerializeField] private TextMeshProUGUI respiratoryRateText;
@@ -112,5 +114,10 @@ public class Astronaut : MonoBehaviour
     {
         float fluctuatedCo2Level = (float)Math.Round(this._co2Level + UnityEngine.Random.Range(-0.3f, 0.3f), 3);
         this.co2LevelText.text = "CO2 level: " + fluctuatedCo2Level + " mmHg";
+    }
+
+    public string getName()
+    {
+        return this.name;
     }
 }
