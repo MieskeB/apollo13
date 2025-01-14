@@ -11,7 +11,7 @@ public class RocketLocation : MonoBehaviour
     [SerializeField] private TextMeshProUGUI counterDisplay;
     
     [SerializeField] private Transform[] points;
-    [FormerlySerializedAs("flightDuration")] [SerializeField] private float flightDurationSeconds = 3600f;
+    private float flightDurationSeconds;
     private float moveSpeed = 5;
     private int currentPointIndex = 0;
 
@@ -24,6 +24,8 @@ public class RocketLocation : MonoBehaviour
 
     private void Start()
     {
+        this.flightDurationSeconds = this.gameManager.GetGameDurationSeconds();
+        
         this.transform.position = points[0].position;
         for (int i = 0; i < points.Length - 1; i++)
         {

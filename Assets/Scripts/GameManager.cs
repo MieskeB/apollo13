@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField][Range(1,10)] private float secondsBetweenScreenSwitches = 5f;
 
+    [SerializeField] private float gameDurationSeconds = 3600f;
+
     public UnityEvent m_GameFinished;
 
     private Screen currentScreen;
@@ -74,6 +76,12 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public Screen GetActiveScreen()
+    {
+        return this.currentScreen;
+    }
+
+
     private void SwitchScreen(Screen screen)
     {
         mainScreen.SetActive(false);
@@ -112,11 +120,16 @@ public class GameManager : MonoBehaviour
         };
     }
 
-    private enum Screen
+    public enum Screen
     {
         Main,
         Trajectory,
         Health,
         Status
+    }
+
+    public float GetGameDurationSeconds()
+    {
+        return this.gameDurationSeconds;
     }
 }

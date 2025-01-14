@@ -42,6 +42,10 @@ public class MainController : MonoBehaviour
 
     void OnEndReached()
     {
+        this.loop.Stop();
+        this.loop.gameObject.SetActive(false);
+        this.launch.Stop();
+        this.launch.gameObject.SetActive(false);
         this.end.Play();
     }
 }
