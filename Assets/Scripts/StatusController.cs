@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,8 +16,13 @@ public class StatusController : MonoBehaviour
 
     [SerializeField] private Slider fuelTankCMDisplay;
     [SerializeField] private Slider fuelTankLMDisplay;
-    [SerializeField] private Slider waterDisplay;
-    [SerializeField] private Slider powerDisplay;
+    [SerializeField] private Slider waterCMDisplay;
+    [SerializeField] private Slider waterLMDisplay;
+    [SerializeField] private Slider powerCMDisplay;
+    [SerializeField] private Slider powerLMDisplay;
+
+    [SerializeField] private TextMeshProUGUI powerTextCM;
+    [SerializeField] private TextMeshProUGUI powerTextLM;
 
     private float initialOxygenPerCMTank;
     private float initialOxygenLM;
@@ -25,20 +31,29 @@ public class StatusController : MonoBehaviour
     private float initialWater;
     private float initialPower;
 
+    private float initialFuelLM;
+    private float initialWaterLM;
+    private float initialPowerLM;
+
 
     private float currentOxygenCM1;
     private float currentOxygenCM2;
     private float currentOxygenCM3;
     private float currentOxygenLM; // Current oxygen level for LM tank
-    private float currentFuel;
-    private float currentWater;
-    private float currentPower;
+    private float currentFuelCM;
+    private float currentFuelLM;
+    private float currentWaterCM;
+    private float currentWaterLM;
+    private float currentPowerCM;
+    private float currentPowerLM;
 
     private float totalGameDuration;
     private float timer = 0f;
-    private float updateInterval = 3f; // Update every 3 seconds
+    private float updateInterval = 4f; // Update every 4 seconds
 
     private bool hasStarted = false;
+
+    private float lmTurnedOnTime = -1f;
 
     private void Start()
     {
@@ -52,10 +67,14 @@ public class StatusController : MonoBehaviour
             hasStarted = true;
 
             initialOxygenPerCMTank = this._iniFileReloader.GetStatus("oxygenCM1");
-            initialOxygenLM = this._iniFileReloader.GetStatus("oxygenLM");
             initialFuel = this._iniFileReloader.GetStatus("fuelCM");
-            initialWater = this._iniFileReloader.GetStatus("water");
-            initialPower = this._iniFileReloader.GetStatus("power");
+            initialWater = this._iniFileReloader.GetStatus("waterCM");
+            initialPower = this._iniFileReloader.GetStatus("powerCM");
+            
+            initialOxygenLM = this._iniFileReloader.GetStatus("oxygenLM");
+            initialFuelLM = this._iniFileReloader.GetStatus("fuelLM");
+            initialWaterLM = this._iniFileReloader.GetStatus("waterLM");
+            initialPowerLM = this._iniFileReloader.GetStatus("powerLM");
 
             oxygenTanksCM1.maxValue = initialOxygenPerCMTank;
             oxygenTanksCM1.value = initialOxygenPerCMTank;
@@ -67,22 +86,29 @@ public class StatusController : MonoBehaviour
             oxygenTanksCM3.value = initialOxygenPerCMTank;
             currentOxygenCM3 = initialOxygenPerCMTank;
 
-            // Initialize slider for LM tank
+            fuelTankCMDisplay.maxValue = initialFuel;
+            fuelTankCMDisplay.value = initialFuel;
+            currentFuelCM = initialFuel;
+            waterCMDisplay.maxValue = initialWater;
+            waterCMDisplay.value = initialWater;
+            currentWaterCM = initialWater;
+            powerCMDisplay.maxValue = initialPower;
+            powerCMDisplay.value = initialPower;
+            currentPowerCM = initialPower;
+
             oxygenTankLM.maxValue = initialOxygenLM;
             oxygenTankLM.value = initialOxygenLM;
             currentOxygenLM = initialOxygenLM;
-
-            // Initialize other resource displays
-            fuelTankCMDisplay.maxValue = initialFuel;
-            fuelTankCMDisplay.value = initialFuel;
-            waterDisplay.maxValue = initialWater;
-            waterDisplay.value = initialWater;
-            powerDisplay.maxValue = initialPower;
-            powerDisplay.value = initialPower;
-
-            currentFuel = initialFuel;
-            currentWater = initialWater;
-            currentPower = initialPower;
+            
+            fuelTankLMDisplay.maxValue = initialFuelLM;
+            fuelTankLMDisplay.value = initialFuelLM;
+            currentFuelLM = initialFuelLM;
+            waterLMDisplay.maxValue = initialWaterLM;
+            waterLMDisplay.value = initialWaterLM;
+            currentWaterLM = initialWaterLM;
+            powerLMDisplay.maxValue = initialPowerLM;
+            powerLMDisplay.value = initialPowerLM;
+            currentPowerLM = initialPowerLM;
         }
 
         timer += Time.deltaTime;
@@ -100,27 +126,52 @@ public class StatusController : MonoBehaviour
     private void DepleteResources()
     {
         float oxygenDepletionPerSecondCM = initialOxygenPerCMTank / totalGameDuration * updateInterval;
-        float oxygenDepletionPerSecondLM = initialOxygenLM / totalGameDuration * updateInterval;
-        float fuelDepletionPerSecond = initialFuel / totalGameDuration * updateInterval;
-        float waterDepletionPerSecond = initialWater / totalGameDuration * updateInterval;
-        float powerDepletionPerSecond = initialPower / totalGameDuration * updateInterval;
+        float fuelDepletionPerSecondCM = initialFuel / totalGameDuration * updateInterval;
+        float waterDepletionPerSecondCM = initialWater / totalGameDuration * updateInterval;
+        float powerDepletionPerSecondCM = initialPower / totalGameDuration * updateInterval;
+
+        if (Math.Abs(lmTurnedOnTime - (-1f)) < 1)
+        {
+            lmTurnedOnTime = this._iniFileReloader.GetStatus("lmStartTime");
+        }
+        else
+        {
+            float oxygenDepletionPerSecondLM = initialOxygenLM / (totalGameDuration - lmTurnedOnTime) * updateInterval;
+            float fuelDepletionPerSecondLM = initialFuelLM / (totalGameDuration - lmTurnedOnTime) * updateInterval;
+            float waterDepletionPerSecondLM = initialWaterLM / (totalGameDuration - lmTurnedOnTime) * updateInterval;
+            float powerDepletionPerSecondLM = initialPowerLM / (totalGameDuration - lmTurnedOnTime) * updateInterval;
+        
+            currentOxygenLM = Mathf.Max(0, this._iniFileReloader.GetStatus("oxygenLM") - oxygenDepletionPerSecondLM);
+            currentFuelLM = Mathf.Max(0, this._iniFileReloader.GetStatus("fuelLM") - fuelDepletionPerSecondLM);
+            currentWaterLM = Mathf.Max(0, this._iniFileReloader.GetStatus("waterLM") - waterDepletionPerSecondLM);
+            currentPowerLM = Mathf.Max(0, this._iniFileReloader.GetStatus("powerLM") - powerDepletionPerSecondLM);
+            
+            this._iniFileReloader.StartSaving();
+        
+            this._iniFileReloader.SaveStatus("oxygenLM", currentOxygenLM);
+            this._iniFileReloader.SaveStatus("fuelLM", currentFuelLM);
+            this._iniFileReloader.SaveStatus("waterLM", currentWaterLM);
+            this._iniFileReloader.SaveStatus("powerLM", currentPowerLM);
+            
+            this._iniFileReloader.StopSaving();
+        }
 
         currentOxygenCM1 = Mathf.Max(0, this._iniFileReloader.GetStatus("oxygenCM1") - oxygenDepletionPerSecondCM);
         currentOxygenCM2 = Mathf.Max(0, this._iniFileReloader.GetStatus("oxygenCM2") - oxygenDepletionPerSecondCM);
         currentOxygenCM3 = Mathf.Max(0, this._iniFileReloader.GetStatus("oxygenCM3") - oxygenDepletionPerSecondCM);
-        currentOxygenLM = Mathf.Max(0, this._iniFileReloader.GetStatus("oxygenLM") - oxygenDepletionPerSecondLM);
-        currentFuel = Mathf.Max(0, this._iniFileReloader.GetStatus("fuelCM") - fuelDepletionPerSecond);
-        currentWater = Mathf.Max(0, this._iniFileReloader.GetStatus("water") - waterDepletionPerSecond);
-        currentPower = Mathf.Max(0, this._iniFileReloader.GetStatus("power") - powerDepletionPerSecond);
+        currentFuelCM = Mathf.Max(0, this._iniFileReloader.GetStatus("fuelCM") - fuelDepletionPerSecondCM);
+        currentWaterCM = Mathf.Max(0, this._iniFileReloader.GetStatus("waterCM") - waterDepletionPerSecondCM);
+        currentPowerCM = Mathf.Max(0, this._iniFileReloader.GetStatus("powerCM") - powerDepletionPerSecondCM);
 
         this._iniFileReloader.StartSaving();
+        
         this._iniFileReloader.SaveStatus("oxygenCM1", currentOxygenCM1);
         this._iniFileReloader.SaveStatus("oxygenCM2", currentOxygenCM2);
         this._iniFileReloader.SaveStatus("oxygenCM3", currentOxygenCM3);
-        this._iniFileReloader.SaveStatus("oxygenLM", currentOxygenLM);
-        this._iniFileReloader.SaveStatus("fuelCM", currentFuel);
-        this._iniFileReloader.SaveStatus("water", currentWater);
-        this._iniFileReloader.SaveStatus("power", currentPower);
+        this._iniFileReloader.SaveStatus("fuelCM", currentFuelCM);
+        this._iniFileReloader.SaveStatus("waterCM", currentWaterCM);
+        this._iniFileReloader.SaveStatus("powerCM", currentPowerCM);
+        
         this._iniFileReloader.StopSaving();
     }
 
@@ -129,9 +180,16 @@ public class StatusController : MonoBehaviour
         oxygenTanksCM1.value = currentOxygenCM1;
         oxygenTanksCM2.value = currentOxygenCM2;
         oxygenTanksCM3.value = currentOxygenCM3;
+        fuelTankCMDisplay.value = currentFuelCM;
+        waterCMDisplay.value = currentWaterCM;
+        powerCMDisplay.value = currentPowerCM;
+        
         oxygenTankLM.value = currentOxygenLM;
-        fuelTankCMDisplay.value = currentFuel;
-        waterDisplay.value = currentWater;
-        powerDisplay.value = currentPower;
+        fuelTankLMDisplay.value = currentFuelLM;
+        waterLMDisplay.value = currentWaterLM;
+        powerLMDisplay.value = currentPowerLM;
+
+        powerTextCM.text = Mathf.Round(currentPowerCM * 10) / 10 + " Wh";
+        powerTextLM.text = Mathf.Round(currentPowerLM * 10) / 10 + " Wh";
     }
 }
