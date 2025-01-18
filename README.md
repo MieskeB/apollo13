@@ -28,6 +28,6 @@ The game has been playtested once, it was responded to as a difficult game, but 
 
 ## Final words
 
-If you have any experiences you would like to share, I would love to hear about them! I would like it a lot to hear improvements, differences, and anything. Please open an issue with any experiences you would like to share.
+If you have any experiences you would like to share, I would love to hear about them! I would like it a lot to hear improvements, differences, and anything. Please open an issue with any improvements you would like to share. Or send me an email with your experiences: info [at] mindware [dot] software
 
 The software is also open for improvements, I will accept any pull request that improves the game and the fun. This can be on the document itself, while also possible for the Unity game.
