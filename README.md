@@ -22,6 +22,16 @@ If you want to make a translation, feel free to make it and contact me so I can 
 
 To make it as chaotic as possible so the incident managers really have to prioritize tasks and keep an eye on what is important to be solved and what not.
 
+## Getting started
+
+1. Download or clone this repository
+2. Run the folder in Unity
+3. Press the play button at the top to start the game
+4. Open on a second monitor the folder C:/Users/[username]/AppData/LocalLow/Mindware Software/ and open the file located there in an automatic file reloading tool like VSCode
+5. Print the files in the folder "Files" as many times as needed
+6. Make sure the astronauts read these documents first!
+7. Have fun!
+
 ## Playtesting
 
 The game has been playtested once, it was responded to as a difficult game, but something to get really invested into. Also the theme and the background knowledge was really fun.
