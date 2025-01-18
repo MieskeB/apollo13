@@ -32,7 +32,8 @@ To make it as chaotic as possible so the incident managers really have to priori
 4. Open on a second monitor the folder C:/Users/[username]/AppData/LocalLow/Mindware Software/ and open the file located there in an automatic file reloading tool like VSCode
 5. Print the files in the folder "Files" as many times as needed
 6. Make sure the astronauts read these documents first!
-7. Have fun!
+7. To start in the application (after pressing the play button), press space to start the launch video (or when testing you can press s to skip the video instead)
+8. The game will start automatically after the video and no extra input is required, other than values that can be changed in the document mentioned above
 
 ## Playtesting
 
