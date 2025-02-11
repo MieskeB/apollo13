@@ -1,0 +1,68 @@
+\section{Communicatie expert}
+
+Welkom in de rol van de Communicatie Expert. Als Communicatie Expert speel je een cruciale rol in het waarborgen van vloeiende en betrouwbare communicatie tussen de astronauten aan boord van het ruimtevaartuig en missie control op aarde. Communicatie is de ruggengraat van elke missie; het stelt astronauten in staat om hun taken te coördineren, gegevens door te sturen, en tijdig hulp te krijgen in noodgevallen. Jouw missie is om ervoor te zorgen dat de communicatiesystemen correct functioneren, eventuele storingen direct te diagnosticeren en op te lossen, en ervoor te zorgen dat alle communicatie helder en tijdig verloopt. Deze handleiding biedt een diepgaand overzicht van jouw verantwoordelijkheden, inclusief systemen, procedures, en probleemoplossing.
+
+\subsection{Overzicht van communicatie systemen}
+Het communicatiesysteem van het ruimtevaartuig bestaat uit verschillende componenten, elk ontworpen om specifieke communicatietaken uit te voeren. Een goed begrip van deze systemen is essentieel om hun werking te waarborgen.
+
+\subsubsection{Hoofdantenne (High-Gain Antenna)}
+De hoofdantenne is verantwoordelijk voor het verzenden en ontvangen van grote hoeveelheden data over lange afstanden. Deze paraboolantenne richt zich nauwkeurig op de aarde om telemetriegegevens, video, en spraakcommunicatie door te sturen. Het richtingsmechanisme maakt gebruik van gyroscopen en feedbacksystemen om de antenne gericht te houden, zelfs wanneer het ruimtevaartuig beweegt.
+
+De hoofdantenne maakt gebruik van de S-band en X-band frequenties.
+
+\subsubsection{Lage-gain antennes (Low-Gain Antennas)}
+Deze omnidirectionele antennes zijn ontworpen voor korteafstandscommunicatie en bieden back-up voor de hoofdantenne. Ze verzenden en ontvangen signalen met lagere datasnelheden, wat essentieel is wanneer de hoofdantenne niet beschikbaar is, bijvoorbeeld tijdens oriëntatiewijzigingen.
+
+De lage-gain antennes maken gebruik van de Very High Frequency (VHF).
+
+\subsubsection{Communicatiefrequenties}
+Het ruimtevaartuig gebruikt meerdere frequenties, meestal in de S-band (2-4 GHz) en X-band (8-12 GHz). De S-band wordt gebruikt voor spraak en telemetrie, terwijl de X-band wordt ingezet voor het verzenden van wetenschappelijke gegevens met hoge bandbreedte.
+
+De VHF frequentie kan ook gebruikt worden en heeft een frequentie tussen de 200-400 MHz.
+
+\subsubsection{Versterkers en modulatoren}
+Versterkers versterken het signaal voordat het wordt uitgezonden, terwijl modulatoren gegevens coderen in radiogolven. Deze systemen zijn gevoelig voor oververhitting en stroompieken, wat constante monitoring vereist.
+
+\subsubsection{Interne communicatiesystemen}
+Interne systemen verbinden de bemanning met elkaar via headsets en luidsprekers. Deze systemen zorgen ervoor dat astronauten zelfs tijdens noodsituaties met elkaar kunnen blijven communiceren, onafhankelijk van de externe antennes.
+
+
+\subsection{Gegevens van communicatiestatus}
+De status van de communicatiesystemen wordt bepaald door een reeks parameters die continu worden gemonitord en geanalyseerd. Hieronder staan de belangrijkste gegevens:
+
+\subsubsection{Signaalsterkte} 
+meet de sterkte van het uitgezonden signaal in dBm (decibel-milliwat). Typische waarden liggen tussen -50 dBm en -100 dBm. Een zwakker signaal kan wijzen op slechte uitlijning van de hoofdantenne of storingen in de versterkers.
+
+\subsubsection{Bandbreedte}
+bepaalt hoeveel data er per seconde kan worden overgedragen. Normale waarden variëren van 64 kbps tot 1 Mbps, afhankelijk van het gebruikte kanaal.
+
+\subsubsection{Ruisniveau}
+meet de achtergrondruis in het communicatiesysteem. Een ruisniveau van meer dan 10 dB ten opzichte van het signaal kan interferentie veroorzaken en communicatie verstoren.
+
+\subsubsection{Verbindingstijd}
+laat zien hoe lang een stabiele verbinding wordt behouden met een grondstation. Kortere verbindingstijden kunnen wijzen op problemen met de antennerichting of obstructies.
+
+\subsubsection{Frequentieverlies}
+is een afwijking in de ingestelde frequenties, vaak veroorzaakt door thermische drift in de elektronica. Dit wordt gemeten in Hz en moet binnen tolerantiegrenzen blijven (meestal <1 Hz variatie).
+
+
+\subsection{Mogelijke problemen}
+
+\subsubsection{Kapotte antenne}
+Wanneer communicatie plotseling heel slecht is en berichten niet aankomen in de raket, is er waarschijnlijk iets mis met de antenne. Dit moet gecontroleerd worden aan boord. Als er iets mis is met de hoofdantenne, moeten de low-gain antennes aangezet worden. Deze antennes hebben een directe verbinding naar aarde nodig, dus voor communicatie moet de raket juist georiënteerd worden.
+
+\subsubsection{Vertraging communicatie}
+Wanneer er grote vertraging zit in de communicatie tussen de raket en CAPCOM, kan het zijn dat bepaalde externe factoren de verbinding verstoren. Een mogelijke oplossing hiervoor is overschakelen naar een andere frequentie. Laat dit aan de raket weten, zorg ervoor dat dit bericht zeker weten aan is gekomen, en laat CAPCOM daarna verplaatsen naar die frequentie.
+
+
+\subsection{Urgentie}
+De urgentie van communicatieproblemen varieert afhankelijk van de impact op de missie en de veiligheid van de bemanning.
+
+\subsubsection{Hoog}
+Een volledige uitval van de communicatiesystemen is van hoge urgentie, omdat het ruimtevaartuig dan geïsoleerd is van missie control. Dit vereist onmiddellijke actie, zoals het inschakelen van redundante systemen en het prioriteren van reparaties.
+
+\subsubsection{Middel}
+Problemen zoals verminderde signaalsterkte of een tijdelijke onderbreking van dataoverdracht zijn van middelmatige urgentie. Hoewel de missie niet direct in gevaar is, moeten deze problemen snel worden opgelost om escalatie te voorkomen.
+
+\subsubsection{Laag}
+Kleine storingen, zoals verhoogde achtergrondruis of een lichte afname van de bandbreedte, hebben lage urgentie. Deze kunnen tijdens routinecontroles worden aangepakt zonder directe impact op de missie.

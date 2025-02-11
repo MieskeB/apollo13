@@ -1,0 +1,215 @@
+\section{Handleiding Engineering Expert}
+
+Welkom in de rol van de Engineering Expert. Jouw primaire missiedoel is ervoor te zorgen dat de systemen van het ruimtevaartuig soepel werken, de structurele integriteit behouden blijft en eventuele uitdagingen op het gebied van engineering tijdens de missie worden aangepakt. Deze uitgebreide handleiding zal je voorzien van de kennis en procedures die nodig zijn om je essentiële rol te vervullen.
+
+\subsection{Overzicht van Ruimtevaartsystemen}
+
+\subsubsection{Voortstuwingssystemen}
+De voortstuwingssystemen van een ruimtevaartuig maken het mogelijk om te manoeuvreren en koerswijzigingen door te voeren. Deze systemen bestaan doorgaans uit een hoofdvoortstuwingsmotor en een Reaction Control System (RCS). Het hoofdvoortstuwingssysteem zorgt voor grote koerswijzigingen en snelheidsveranderingen, terwijl het RCS gebruik maakt van kleine stuwraketten om de oriëntatie van het ruimtevaartuig nauwkeurig te controleren.
+
+\subsubsection{Motorwerking en Stuwkrachtberekening}
+De motoren werken op basis van het principe van actie en reactie, zoals beschreven door Newtons derde wet. Een mengsel van oxidator en brandstof wordt in een verbrandingskamer geïnjecteerd, waar het ontbrandt en uit de motor wordt uitgestoten. De stuwkracht wordt berekend aan de hand van de volgende formule:
+
+$$F=\dot{m}*v_e + (p_e-p_a) * A_e$$
+
+waarbij
+\begin{itemize}
+    \item $F$ de stuwkracht in $N$ is,
+    \item $\dot{m}$ de massastroom van de uitlaatgassen in $kg/s$ is,
+    \item $v_e$ de uitlaatgassnelheid in $m/s$ is,
+    \item $p_e$ de druk van de uitlaat in $Pa$ is,
+    \item $p_a$ de omgevingsdruk in $Pa$ is, en
+    \item $A_e$ de uitlaatdoorsnede in $m2$ is.
+\end{itemize}
+
+Om daarna de stuwkracht-gewicht verhouding te berekenen is de volgende formule nodig:
+
+$$g=\frac{c*F}{m}$$
+
+waarbij
+\begin{itemize}
+    \item $g$ de stuwkracht-gewicht verhouding in $N/kg$ is;
+    \item $c$ de hoeveelheid stuwmotoren er zijn;
+    \item $F$ de stuwkracht in $N$ is; en
+    \item $m$ de massa is van de raket.
+\end{itemize}
+
+Om deze systemen effectief te beheren, moet je de drukniveaus, temperatuur en brandstofvoorraad in real-time monitoren. Afwijkingen in deze parameters kunnen wijzen op problemen zoals lekkages, oververhitting of een inefficiënte verbranding.
+
+\subsubsection{Elektrische Systemen}
+Het elektrische systeem levert energie aan vrijwel alle subsystemen aan boord, inclusief navigatie, communicatie, en levensonderhoud. Het primaire systeem bestaat meestal uit zonnepanelen, die energie opwekken uit zonlicht. Deze energie wordt opgeslagen in batterijen om stroom te leveren tijdens perioden van schaduw of verhoogd energieverbruik.
+
+Het is belangrijk om deze systemen, en de bekabeling, ten alle tijden goed droog te houden. Anders is er mogelijkheid tot kortsluiting.
+
+\subsubsection{Stroomverdeling}
+De energie wordt via een centrale bus verdeeld naar verschillende subsystemen. De spanning en stroomsterkte worden gereguleerd om overbelasting of onderbreking te voorkomen. Voorbeelden van typische spanningen zijn 28V DC voor hoofdsystemen en lagere spanningen voor gevoelige apparatuur. Batterijen worden continu opgeladen om een back-up te garanderen bij storingen van de zonnepanelen. Het monitoren van de stroombalans tussen energieopwekking, opslag en verbruik is cruciaal om een energiecrisis te voorkomen.
+
+\subsubsection{Structurele Integriteit}
+De structurele componenten van het ruimtevaartuig beschermen de bemanning en apparatuur tegen de extreme krachten van lancering, micro-meteoroïden, en temperatuurschommelingen. De structuur is opgebouwd uit lichtgewicht, sterke materialen zoals aluminiumlegeringen en composieten.
+
+\subsection{LM en CM}
+De Lunar Module (LM) en de Command Module (CM) hebben allebei eigen levensondersteunende systemen. De LM is ontwikkeld voor twee personen om genoeg voorraad te hebben zodat als er een maanlanding plaats vindt, de astronauten genoeg hebben om terug naar het schip te reizen. 
+
+Alle systemen hierboven zitten in zowel de CM als de LM, omdat deze losgekoppeld kan worden voor een maanlanding.
+
+
+\subsection{Gegevens van systemen}
+
+\subsubsection{Voortstuwingssystemen}
+\begin{itemize}
+    \item CM
+    \begin{itemize}
+        \item Hoofdmotor: 3-5 kW tijdens gebruik.
+        \item RCS: 1-2 kW bij gebruik.
+    \end{itemize}
+    \item LM
+    \begin{itemize}
+        \item Hoofdmotor: 2-4 kW tijdens gebruik.
+        \item RCS: 1-2 kW bij gebruik.
+    \end{itemize}
+\end{itemize}
+
+% \subsubsection{Elektrische systemen}
+% \begin{itemize}
+%     \item CM
+%     \begin{itemize}
+%         \item Zonnepanelen: Leveren gemiddeld 4-6 kW.
+%         \item Batterijen: Capaciteit van 20-40 kWh met laad-/ontlaadvermogen van 1-3 kW.
+%     \end{itemize}
+%     \item LM
+%     \begin{itemize}
+%         \item Batterijen: Capaciteit 30 kWh.
+%     \end{itemize}
+% \end{itemize}
+
+\subsubsection{Communicatiesystemen}
+\begin{itemize}
+    \item CM
+    \begin{itemize}
+        \item Hoofdantennne: 500-800 W tijdens uitzending.
+        \item Lage-gain antennes: 100-200 W.
+    \end{itemize}
+    \item LM
+    \begin{itemize}
+        \item Hoofdantenne: 500-800 W tijdens uitzending.
+        \item Lage-gain antennes: 100-200 W.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Navigatiesystemen}
+\begin{itemize}
+    \item CM
+    \begin{itemize}
+        \item Gyroscopen en sensoren: 300-500 W continu.
+        \item Sterrenvolgsystemen: 200-400 W.
+    \end{itemize}
+    \item LM
+    \begin{itemize}
+        \item Gyroscopen en sensoren: 300-500 W continu.
+        \item Sterrenvolgsystemen: 200-400 W.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Levensondersteuningssystemen}
+\begin{itemize}
+    \item CM
+    \begin{itemize}
+        \item Zuurstofgeneratoren: 300-500 W.
+        \item CO2-filters: 200 W.
+        \item Verwarming/koeling: 1-2 kW.
+    \end{itemize}
+    \item LM
+    \begin{itemize}
+        \item Zuurstofgeneratoren: 250-450 W.
+        \item CO2-filters: 100 W.
+        \item Verwarming/koeling: 1-2 kW.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Wetenschappelijke instrumenten}
+\begin{itemize}
+    \item CM
+    \begin{itemize}
+        \item Instrumenten: 100-500 W.
+        \item Data-opslag: 50-150 W.
+    \end{itemize}
+    \item LM
+    \begin{itemize}
+        \item Instrumenten: 1-2 kW bij gebruik.
+        \item Data-opslag: 100-200 W.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Alarmsystemen}
+\begin{itemize}
+    \item CM
+    \begin{itemize}
+        \item Sensoren: 50-100 W.
+        \item Waarschuwingssignalen: 10-50 W.
+    \end{itemize}
+    \item LM
+    \begin{itemize}
+        \item Sensoren: 50-100 W.
+        \item Waarschuwingssignalen: 10-50 W.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Mogelijke problemen}
+
+\subsubsection{Generaal probleem}
+Wanneer er iets kapot lijkt te zijn, is de eerste mogelijkheid bijna altijd dat systeem te herstarten. De kans is het grootst dat een sensor kapot is, of een systeem overbelast. Door dat systeem te herstarten, worden deze problemen vrijwel altijd direct opgelost.
+
+Daarnaast zijn standaard materialen als ducttape, stof, en reserveonderdelen om kleine reparaties uit te voeren.
+
+\subsubsection{Moeilijkheden met uit de aarde zijn orbit uit te komen}
+Wanneer het lijkt alsof de raket moeite heeft om uit de orbit van de aarde te komen, is het essentieel om snel te bepalen hoe ernstig het probleem is en of de missie vroegtijdig moet worden beëindigd. Dit kan worden gedaan door de stuwkracht te berekenen met behulp van de formule om stuwkracht te berekenen.
+
+De benodigde stuwkracht om van de aarde af te komen is afhankelijk van de hoogte en de bijbehorende zwaartekracht en atmosferische druk. Hieronder worden de minimale stuwkrachtvereisten op verschillende hoogtes gegeven:
+
+\begin{itemize}
+    \item 0-2000 m: 9,8 N/kg
+    \item 2001-4000 m: 9,7 N/kg
+    \item 4001-10000 m: 9,5 N/kg
+\end{itemize}
+
+Als de gemeten stuwkracht onder deze waarden komt, moet onmiddellijk worden geëvalueerd of extra correcties mogelijk zijn. Dit kan bijvoorbeeld door een kortdurende toename van de brandstoftoevoer, maar dit moet zorgvuldig worden gedaan om te voorkomen dat brandstofreserves te snel worden uitgeput.
+
+De raket vliegt tijdens iedere fase met 5 stuwmotoren. De volgende informatie is nodig om de stuwkracht-gewicht verhouding te berekenen:
+\begin{itemize}
+    \item Massastroom van de uitlaatgassen: 300 kg/s
+    \item Uitlaatgassnelheid: 4000 m/s
+    \item Druk van de uitlaat: 100.000 Pa
+    \item Omgevingsdruk: 0 Pa
+    \item Uitlaatdoorsnede: 1,5 m2
+    \item Gewicht raket: 550.000 kg
+\end{itemize}
+
+\subsubsection{Energie laag}
+In het geval dat de systemen meer stroom gebruiken dan dat er aanwezig is, moet er een keuze gemaakt worden welke systemen uitgeschakeld worden. In het kopje 'Gegevens van systemen' staat beschreven hoeveel stroom elk systeem gebruikt in $kW$ of $W$, NB $1kW=1000W$. Om te berekenen hoeveel energie er nodig is voor een systeem, moet de volgende formule gebruikt worden:
+
+$$E = P * t$$
+
+Waarbij
+\begin{itemize}
+    \item $E$ de hoeveelheid energie is in $Wh$ of $kWh$;
+    \item $P$ de hoeveelheid vermogen is in $W$ of $kW$; en
+    \item $t$ het aantal uren dat hij aanstaat is.
+\end{itemize}
+
+Kijk op het scherm hoeveel $kWh$ er beschikbaar is en maak een berekening hoeveel stroom er nodig zal zijn om de rest van de rit te halen met de aanwezige stroom.
+
+NB het uitschakelen van het communicatiesysteem zorgt ervoor dat er geen communicatie meer mogelijk is met CAPCOM!
+
+
+\subsection{Urgentie}
+De urgentie van een probleem wordt bepaald door de potentiële impact op de missie en de veiligheid van de bemanning.
+
+\subsubsection{Hoog}
+Directe bedreigingen zoals uitval van een primaire motor, decompressie van de cabine, of verlies van energieopslag vereisen onmiddellijke interventie. Dit kan betekenen dat prioriteit wordt gegeven aan noodprocedures boven andere missieactiviteiten.
+
+\subsubsection{Middel}
+Problemen zoals een langzaam dalende batterijcapaciteit, kleine lekkages, of een lichte afwijking in de motorprestaties vereisen tijdige aandacht om escalatie te voorkomen, maar zijn niet onmiddellijk levensbedreigend.
+
+\subsubsection{Laag}
+Afwijkingen zoals een lichte daling in zonnepaneelefficiëntie of een minimaal verhoogde thermische belasting kunnen worden aangepakt tijdens routineonderhoud zonder directe impact op de missie.
