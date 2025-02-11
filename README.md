@@ -38,10 +38,11 @@ For the game leaders: to make it as chaotic as possible so the incident managers
 6. Make sure the astronauts (game leaders) read these documents entirely first!
 7. To start in the application (after pressing the play button), press space to start the launch video (or when testing you can press s to skip the video instead)
 8. The game will start automatically after the video and no extra input is required, other than values that can be changed in the document mentioned above
+9. The game will automatically end about an hour after launch (this can be modified in the GameManager)
 
 ## Playtesting
 
-The game has been playtested once. It was responded to as a difficult game, but something to get really invested into. Also, the theme and the background knowledge were really fun.
+The game has been playtested once with a group of 14 people. Players found it challenging but highly engaging, with plenty of opportunities to get deeply invested. The theme and background knowledge were also well-received and considered a fun addition to the experience.
 
 ## Final words
 
