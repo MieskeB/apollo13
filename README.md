@@ -1,6 +1,6 @@
 # Apollo 13
 
-Apollo 13 is a teambuilding program / serious game for (10-16 people + 2 game leaders) where the players have to cooperate to ensure the astronauts (game leaders) survive. The goal is to start simple with 1 or 2 challenges, and whenever the oxygen tank explodes, the players get filled with incidents. These incidents then have to be solved and can be solved when reading through all the manuals.
+Apollo 13 is a teambuilding program/game for (10-16 people + 2 game leaders) where the players have to cooperate to ensure the astronauts (game leaders) survive. The goal is to start simple with 1 or 2 challenges, and whenever the oxygen tank explodes, the players get filled with incidents. These incidents then have to be solved and can be solved when reading through all the manuals.
 
 This game is inspired by a serious game designed to provide insights into IT Service Management processes. That version focuses on team building and improving work processes. However, the game developed here is primarily for fun and not intended as a serious game. If you are looking for the original serious game, you can find more information on websites like [Gamingworks](https://www.gamingworks.nl/business-simulations/apollo-13/).
 
