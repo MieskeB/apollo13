@@ -1,6 +1,8 @@
 # Apollo 13
 
-Apollo 13 is a teambuilding program / serious game for (10-16 people + 2 game leaders) where the players have to cooperate in order to ensure the astronauts (game leaders) survive. The goal is to start simple with 1 or 2 challenges, and whenever the oxygen tank explodes, the players get filled with incidents. These incidents then have to be solved and can be solved when reading through all the manuals.
+Apollo 13 is a teambuilding program / serious game for (10-16 people + 2 game leaders) where the players have to cooperate to ensure the astronauts (game leaders) survive. The goal is to start simple with 1 or 2 challenges, and whenever the oxygen tank explodes, the players get filled with incidents. These incidents then have to be solved and can be solved when reading through all the manuals.
+
+This game is inspired by a serious game to give insights into IT Service Management processes. That game is intended for team building and improving work processes. [Gamingworks](https://www.gamingworks.nl/business-simulations/apollo-13/)
 
 ## Languages
 
@@ -8,7 +10,7 @@ Apollo 13 is a teambuilding program / serious game for (10-16 people + 2 game le
 | --- |
 | Dutch |
 
-If you want to make a translation, feel free to make it and contact me so I can add it to the repository.
+If you want to translate something, feel free to do so and contact me so I can add it to the repository.
 
 ## Gameplay loop
 
@@ -22,7 +24,9 @@ If you want to make a translation, feel free to make it and contact me so I can 
 
 ## The goal
 
-To make it as chaotic as possible so the incident managers really have to prioritize tasks and keep an eye on what is important to be solved and what not.
+For the players: to learn to cooperate and to look at the process and how to improve it constantly.
+
+For the game leaders: to make it as chaotic as possible so the incident managers really have to prioritize tasks and keep an eye on what is important to be solved and what not.
 
 ## Getting started
 
@@ -37,10 +41,10 @@ To make it as chaotic as possible so the incident managers really have to priori
 
 ## Playtesting
 
-The game has been playtested once, it was responded to as a difficult game, but something to get really invested into. Also the theme and the background knowledge was really fun.
+The game has been playtested once. It was responded to as a difficult game, but something to get really invested into. Also, the theme and the background knowledge were really fun.
 
 ## Final words
 
 If you have any experiences you would like to share, I would love to hear about them! I would like it a lot to hear improvements, differences, and anything. Please open an issue with any improvements you would like to share. Or send me an email with your experiences: info [at] mindware [dot] software
 
-The software is also open for improvements, I will accept any pull request that improves the game and the fun. This can be on the document itself, while also possible for the Unity game.
+The software is also open for improvements! I will accept any pull request that improves the game and its fun. This can be both for the document itself or the Unity game.
